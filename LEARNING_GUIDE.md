@@ -118,7 +118,7 @@ This section supersedes the queue-project progress note above. The earlier guide
 
 Pause queues. Focus on object creation, properties, method calls, arguments, local variables, and `$this`. The learner successfully assembled simple calls after examples, but distinguishing an object's property from a local variable remains a teaching priority. Do not assume mastery from those prompted responses.
 
-Begin at `lessons/01-create-an-object.md`. The `Item` class is provided; the practice area is intentionally empty. Do not invent variables that have not been introduced or created. Explicitly distinguish an unrelated example from the learner's actual file.
+Begin at `lessons/00-start-an-empty-file.md`. No application file or class is provided. Teach creating and running the file before defining a class or creating an object. Do not invent variables that have not been introduced or created. Explicitly distinguish an unrelated example from the learner's actual file.
 
 ### Latest instruction: keep it short
 
@@ -128,3 +128,7 @@ Begin at `lessons/01-create-an-object.md`. The `Item` class is provided; the pra
 - Keep hints and further explanations in the conversation when requested, rather than filling the lesson with expandable sections.
 - Stop for an attempt. If the learner cannot start, ask what the instruction means to them and address the missing concept before revealing a solution.
 - Increase independence through small variations, not larger unexplained jumps.
+
+### Starting from empty files
+
+The learner explicitly wants to create the files and set them up personally. Do not pre-create application files or supply a completed scaffold. Teach where to create each file, its opening syntax, what belongs inside versus outside a class or method, and how to run or syntax-check it. Explain one unfamiliar setup convention at a time. Later, teach a second file and `require_once` explicitly rather than assuming knowledge of imports or autoloading.

@@ -15,6 +15,6 @@ public function brighten(): void
 
 `void` means this method returns no value.
 
-**Your turn:** define an `addOne()` method on `Item` that increases its quantity by one. Adapt the example; do not change the practice area yet.
+**Your turn:** define an `addOne()` method on `Item` that increases its quantity by one. Adapt the example; do not change the code outside the class yet.
 
 Stop for review. Then call your method on `$bolts`, using the method-call pattern you practiced: `$object->method();`. Display both quantities. Only the receiving object should change.

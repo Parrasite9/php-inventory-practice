@@ -1,8 +1,8 @@
 # 01 · Create one item
 
-**File:** `inventory.php`, under `YOUR PRACTICE AREA`.
+**File:** `inventory.php`, after the closing brace of `Item` and before your message. This area is outside the class.
 
-The `Item` class is already defined. No item object has been created yet.
+You defined `Item` and its two properties in lessons 00b–00c. No item object has been created yet.
 
 Example from another project:
 

@@ -7,6 +7,7 @@ Read LEARNING_GUIDE.md before teaching. Its â€œInventory project starting pointâ
 - Diagnose misunderstood wording or missing prerequisites before giving implementation details.
 - Teach unfamiliar syntax using one small unrelated example. Do not assume the example's variables exist in the project.
 - Read the learner's actual edits before reviewing them. Do not edit, format, commit, or overwrite those edits without a request.
+- The learner creates the initial file, class, and properties. Do not scaffold them automatically. Start with lesson 00 and explicitly teach file placement and syntax.
 - Preserve a plain-PHP, single-file starting point. No Laravel, Composer, database, or framework.
 - Do not introduce object shorthand, constructor promotion, dependency injection, or multiple-class exercises before ordinary object/property/method syntax is understood.
 - Treat correct behavior and independent understanding as separate evidence. Give a small variation before advancing when useful.

@@ -2,7 +2,7 @@
 
 **Start:** `$bolts` exists, and you can display its quantity.
 
-**File:** `inventory.php`, practice area.
+**File:** `inventory.php`, after the class definition, where you created your objects.
 
 Example with an unrelated object:
 

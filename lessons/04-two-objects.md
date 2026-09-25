@@ -2,7 +2,7 @@
 
 **Start:** keep your `$bolts` object and its changes.
 
-**File:** `inventory.php`, practice area.
+**File:** `inventory.php`, after the class definition, where you created your objects.
 
 Creating another object with `new Item` gives it its own properties with the class's default values.
 

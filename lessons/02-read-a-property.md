@@ -16,6 +16,6 @@ echo $lamp->brightness;
 
 **Your turn:** display the quantity stored on `$bolts`.
 
-Run `php inventory.php`. Expect `10` before the startup message. Share your line for review.
+Run `php inventory.php`. Expect `10` before your message. Share your line for review.
 
 After review, repeat the same pattern to display the item's name.
