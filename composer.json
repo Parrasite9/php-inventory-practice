@@ -1,0 +1,15 @@
+{
+    "name": "isaiah/php-inventory-practice",
+    "autoload": {
+        "psr-4": {
+            "Isaiah\\PhpInventoryPractice\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "isaiah",
+            "email": "isaiah.johnson@bigdco.com"
+        }
+    ],
+    "require": {}
+}

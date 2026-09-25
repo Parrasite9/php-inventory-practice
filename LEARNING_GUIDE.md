@@ -132,3 +132,9 @@ Begin at `lessons/00-start-an-empty-file.md`. No application file or class is pr
 ### Starting from empty files
 
 The learner explicitly wants to create the files and set them up personally. Do not pre-create application files or supply a completed scaffold. Teach where to create each file, its opening syntax, what belongs inside versus outside a class or method, and how to run or syntax-check it. Explain one unfamiliar setup convention at a time. Later, teach a second file and `require_once` explicitly rather than assuming knowledge of imports or autoloading.
+
+### Progress observation — September 25, 2026
+
+The learner reported an initially incorrect attempt followed by their own correction while working with a second item. The current file creates `$nuts = new Item`, initially prints its default name, then explicitly assigns `$nuts->name = 'nuts'` and prints the updated name. The file labels this as a second attempt at correcting the name issue.
+
+Record both the initial difficulty and the self-correction. A variable's name does not set the object's `name` property: a new Item starts with the class's default `'Bolts'` until assigned otherwise. Earlier output remains unchanged because statements execute in order. These are useful concepts to revisit through a small variation; the exact reasoning behind the initial attempt was not stated. Do not infer a general inability or independent mastery from this one example. Preserve the learner's code when reviewing.
