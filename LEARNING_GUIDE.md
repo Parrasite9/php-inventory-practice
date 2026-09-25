@@ -106,7 +106,7 @@ Let me move the line. Inspect the result and explain the resulting execution ord
 - Do not assume my practical approach to inspecting data means I misunderstand in-memory objects.
 - Do not label me incapable, assign a clinical diagnosis, or claim a validated learning style from this conversation.
 
-## Current starting point
+## Historical starting point — queue project
 
 At the time this guide was created, I completed `DeviceCheck::run()` with substantial guidance. It selects unknown/offline/online, records the check time, and saves the device. Its lesson test passed (one test, five assertions).
 
@@ -131,10 +131,40 @@ Begin at `lessons/00-start-an-empty-file.md`. No application file or class is pr
 
 ### Starting from empty files
 
-The learner explicitly wants to create the files and set them up personally. Do not pre-create application files or supply a completed scaffold. Teach where to create each file, its opening syntax, what belongs inside versus outside a class or method, and how to run or syntax-check it. Explain one unfamiliar setup convention at a time. Later, teach a second file and `require_once` explicitly rather than assuming knowledge of imports or autoloading.
+The learner explicitly wants to create the files and set them up personally. Do not pre-create application files or supply a completed scaffold. Teach where to create each file, its opening syntax, what belongs inside versus outside a class or method, and how to run or syntax-check it. Explain one unfamiliar setup convention at a time. Use normal developer tooling for boilerplate. For separate classes, teach Composer autoloading rather than requiring each class file manually. Explain the one-time autoloader bootstrap without turning filesystem-path syntax into a separate exercise.
 
 ### Progress observation — September 25, 2026
 
 The learner reported an initially incorrect attempt followed by their own correction while working with a second item. The current file creates `$nuts = new Item`, initially prints its default name, then explicitly assigns `$nuts->name = 'nuts'` and prints the updated name. The file labels this as a second attempt at correcting the name issue.
 
 Record both the initial difficulty and the self-correction. A variable's name does not set the object's `name` property: a new Item starts with the class's default `'Bolts'` until assigned otherwise. Earlier output remains unchanged because statements execute in order. These are useful concepts to revisit through a small variation; the exact reasoning behind the initial attempt was not stated. Do not infer a general inability or independent mastery from this one example. Preserve the learner's code when reviewing.
+
+
+## Current progress and teaching adjustments
+
+This section supersedes earlier starting-point notes. Continue from the learner's current code; do not restart lesson 00 or the queue exercises.
+
+### What we observed
+
+- The learner created properties, objects, and method calls, then adapted `receive()` into `ship()`. They explicitly reported that the shipping exercise was much easier. Reusing a recently understood pattern with one changed behavior is a useful approach to continue testing.
+- They successfully repeated calls with different amounts and called the same method on a second object. This demonstrates working implementations in these examples, not mastery of every object-oriented concept.
+- In `receive()`, they initially mixed up `$amount`, `$this->quantity`, and dynamic property syntax such as `$this->$quantity`. They corrected it with focused guidance. Revisit the distinction between incoming information and stored state through meaningful variations, rather than another abstract syntax quiz.
+- They placed an insufficient-stock condition before the subtraction, but initially included assignment inside the condition. They corrected that and added a RuntimeException after an unrelated example. The reviewed method rejected shipping 11 from 10 without changing stock, allowed shipping 3, and allowed shipping the exact remainder.
+- An apparently unchanged correction was an unsaved editor buffer. Check whether edits were saved before treating repeated code as a repeated misunderstanding.
+- A correct method call on a different object was still valid code. Distinguish a small mismatch with the requested exercise from a conceptual or syntax error.
+
+### Use ordinary tools, not boilerplate memorization
+
+The learner wants practice starting files, but does not want to memorize repetitive scaffolding. These preferences are compatible. Use editor snippets for class/method structures and `composer init` for generating configuration, then explain the choices those tools leave to the developer.
+
+Prefer reusable editor extensions over per-project custom snippets. A static placeholder is not automatic namespace detection; explain that difference before recommending a shortcut. The configured PHP Better Snippets extension now supports Composer-aware namespace completion with `name`; the custom `phpns` snippet was removed.
+
+Composer is now part of this project. The learner split `Item` into `src/Item.php`, used the generated namespace mapping, and connected Composer's autoloader from the root script. Explain `use` as a naming import and autoloading as file loading when needed. Do not revert to the earlier no-Composer restriction or per-class manual requires.
+
+### How to continue
+
+Keep each task short: establish the relevant state, teach any new tool, ask for one implementation choice, review the saved attempt, and offer a small variation. A familiar pattern can be reused before introducing a new concept. Provide syntax for genuinely new tools, such as throwing an exception, while leaving the application decision to the learner.
+
+The initial eight lessons were only a starter sequence. Continue with explicit written guidance and reviews; do not switch to unsupported independent work because the initial list ended.
+
+The insufficient-stock exercise is complete for the reviewed positive-amount cases. Negative/invalid quantity handling, returning results, constructors, and collaboration between objects remain future guided work. Passing the stock check does not establish complete input validation. Verify current files before choosing the next task.
