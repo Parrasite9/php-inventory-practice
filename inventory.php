@@ -1,6 +1,8 @@
 <?php
 
 use Isaiah\PhpInventoryPractice\Item;
+use Isaiah\PhpInventoryPractice\NamedItem;
+
 require 'vendor/autoload.php';
 
 
@@ -36,7 +38,7 @@ $nuts = new Item;
 // echo $bolts->isInStock();
 $requestedAmount = 8;
 $currentNutQuantity = $nuts->getQuantity();
-echo $currentNutQuantity;
+echo $currentNutQuantity . PHP_EOL;
 
 $bolts->ship(10);
 
@@ -48,10 +50,35 @@ $bolts->ship(10);
 
 
 if ($nuts->hasEnough($requestedAmount)) {
-    echo 'Enough Stock';
+    echo 'Enough Stock' . PHP_EOL;
     $nuts->ship($requestedAmount);
     $currentNutQuantity = $nuts->getQuantity();
-    echo $currentNutQuantity;
+    echo $currentNutQuantity . PHP_EOL;
 } else {
     echo 'Not enough stock';
 }
+
+// $washers1 = new Item('washers');
+// $washers2 = new NamedItem('washers');
+
+// echo $washers1->name . PHP_EOL;
+// echo $washers2->name . PHP_EOL;
+
+$screws = new NamedItem('screws', 10);
+echo $screws->name . PHP_EOL . $screws->quantity . PHP_EOL;
+echo $screws->receive(10) . PHP_EOL;
+
+$lights = new NamedItem('lights', 5);
+echo $lights->quantity . PHP_EOL;
+echo $lights->receive(3) . PHP_EOL;
+echo $screws->quantity . PHP_EOL;
+
+$spareLights = $lights;
+$spareLights->receive(2);
+echo $lights->quantity . PHP_EOL;
+echo $spareLights->quantity . PHP_EOL;
+
+$spareLights = new NamedItem('spare lights', 5);
+$spareLights->receive(2);
+
+echo $spareLights->quantity;

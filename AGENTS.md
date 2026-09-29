@@ -12,3 +12,7 @@ Read LEARNING_GUIDE.md before teaching. Its “Current progress and teaching adj
 - Do not introduce object shorthand, constructor promotion, dependency injection, or multiple-class exercises before ordinary object/property/method syntax is understood.
 - Treat correct behavior and independent understanding as separate evidence. Give a small variation before advancing when useful.
 - The lesson list is a suggested progression, not proof that prerequisites are mastered.
+
+- Preserve old examples when introducing alternatives; create side-by-side comparisons. The learner now prefers constructor-based initialization. Do not insist on finishing an abandoned comparison after its purpose is understood.
+- After each successful review, give the next small task. Avoid unnecessary repetition and cosmetic message edits when behavior is the learning objective.
+- Make terminal output readable with newlines; distinguish output formatting issues from logic errors.

@@ -167,4 +167,40 @@ Keep each task short: establish the relevant state, teach any new tool, ask for 
 
 The initial eight lessons were only a starter sequence. Continue with explicit written guidance and reviews; do not switch to unsupported independent work because the initial list ended.
 
-The insufficient-stock exercise is complete for the reviewed positive-amount cases. Negative/invalid quantity handling, returning results, constructors, and collaboration between objects remain future guided work. Passing the stock check does not establish complete input validation. Verify current files before choosing the next task.
+The learner has since implemented guards against nonpositive receiving/shipping amounts and insufficient stock, integer and boolean return methods, calling-code conditions, and constructor-based naming. Reviewed examples worked; this does not establish exhaustive validation or independent mastery. Collaboration between objects remains future guided work. Verify current files before choosing the next task.
+
+
+### September 29 update — preserve comparisons and move forward
+
+- Preserve earlier working examples when teaching an alternative. Add a separate class or example so the learner can compare both versions side by side. Explain file/autoload constraints before choosing the layout; do not assume existing work should be replaced.
+- The learner chose constructor-based initialization after comparing it with post-creation assignment. Continue with constructors. Do not keep requiring repairs to the abandoned manual-name example merely for exercise compliance, unless its behavior blocks current work. This preference does not mean all future property changes must use constructors.
+- A constructor runs during object creation and initializes the object. Reinforce this concrete purpose rather than describing it merely as shorter syntax or a general mechanism for later changes.
+- After a successful review, supply the next small task in the same response. If the current task is incomplete, give one focused correction instead. Keep repetition purposeful; do not repeat an equivalent exercise indefinitely after it has served its purpose.
+- Do not dwell on cosmetic error-message wording when the learner asks to focus on behavior. Still identify incorrect behavior or a materially misleading result.
+
+### Recent concepts that needed support
+
+- A returned integer stored in a variable is a snapshot. Updating the object does not automatically update that variable; a fresh method call and assignment are needed. Calling a getter without using its return does not update an earlier variable.
+- Printing and returning serve different purposes. A method declared `bool` must return a boolean on each normal completion path. The learner implemented `hasEnough()` using explicit true/false branches after guidance. Accept that valid form rather than insisting on a shorter expression before it is understood.
+- Object values are printed by selecting a property or returned value; an ordinary object is not automatically printable as a string. Show the relevant distinction when an actual error occurs.
+- Reusing a variable for a newly constructed object replaces what that variable refers to. The learner corrected the screws example to use its own variable.
+- Concatenated terminal output was mistaken for a skipped branch. Use readable output with `PHP_EOL` in examples and inspect actual output before assuming a control-flow misunderstanding.
+
+### Current handoff
+
+`Item` retains the original inventory behavior. `NamedItem` now accepts a name and starting quantity, rejects empty names and negative starting quantities, and has a `receive()` method that updates and returns the stored quantity. Constructor guard checks passed for empty/valid names and negative/zero/positive quantities. The learner needed guidance to distinguish a local `$quantity` from `$this->quantity`: a standalone property read does not create a local variable. They also connected `echo $item->receive(...)` with the method's return value. The last inspected method returned the quantity but did not yet declare `: int`; inspect current code before claiming otherwise.
+
+Reviewed examples showed separate objects maintaining separate quantities, two variables referring to one object (both printed 10), and reassignment using `new` creating a separate object (printed 7). The learner initially predicted from the constructor's original quantity rather than the quantity after earlier calls. This was explained using execution order, not treated as proof of a general difficulty.
+
+The learner understood the purpose of sharing an existing object better after seeing a complete selection example: the user chooses lights, bolts, or nuts, then common code updates the selected existing item. They explicitly asked to move on. Do not require the proposed `readline()` selection exercise or more aliasing repetitions. A standalone `restock(NamedItem $item, int $amount): void` function was proposed but has not been reviewed as implemented. Choose the next core lesson with a practical purpose rather than automatically resuming that exercise.
+
+### Teaching adjustments — practical purpose and scope
+
+- Explain when and why a concept is useful before asking for its mechanics. Use a concrete scenario in which the new mechanism actually solves a problem, with enough surrounding code to show that need.
+- The learner correctly challenged `$spareLights = $lights` as unnecessary in a script that could simply call `$lights->receive(2)`. Do not defend artificial extra steps as inherently useful. The name `spareLights` also suggested separate stock, obscuring the intended shared-object example. Use names that match the scenario.
+- When a small analogy or explanation does not resolve the question, show the actual missing context. A full user-selection conditional made the purpose clearer than repeating that two variables point to one object. Report this as helpful evidence, not proof of independent mastery.
+- Keep the progression focused on core programming concepts. The learner declined whitespace-validation details as a detour; do not resume `trim()` exercises or add minor validation variations just to generate more tasks.
+- When the learner reports testing an `if/else`, assume their report covers both branches. During reviews, check both branches rather than treating whichever call is currently saved as their only test. Distinguish learner-reported tests from checks actually run by the assistant. An intentionally failing input may be a successful guard test.
+- Respect requests to move forward once a concept's purpose is clear. Do not make redundant output lines, cosmetic changes, or abandoned exercises gates to advancement.
+
+No additional code changes, formatting, commits, or pushes are authorized merely by maintaining this guide.
