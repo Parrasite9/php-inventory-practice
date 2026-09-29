@@ -7,7 +7,7 @@ use RuntimeException;
 class NamedItem
 {
     public string $name = '';
-    public int $quantity = 0;
+    private int $quantity = 0;
 
     public function __construct(string $name, int $quantity)
     {
@@ -34,5 +34,19 @@ class NamedItem
         }
 
         return $this->quantity;
+    }
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    public function isInStock(): bool
+    {
+        if ($this->getQuantity() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

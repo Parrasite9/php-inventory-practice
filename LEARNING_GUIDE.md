@@ -204,3 +204,21 @@ The learner understood the purpose of sharing an existing object better after se
 - Respect requests to move forward once a concept's purpose is clear. Do not make redundant output lines, cosmetic changes, or abandoned exercises gates to advancement.
 
 No additional code changes, formatting, commits, or pushes are authorized merely by maintaining this guide.
+
+### Latest direction — teach toward the Monitor project
+
+The learner explicitly identifies `../laravel-device-monitor` as the application world they expect to work in. They prefer the path of least resistance that remains understandable. Choose syntax and exercises by their usefulness in that world, rather than following a general PHP feature checklist. Use framework tools and generated boilerplate where appropriate, explaining what they supply instead of making the learner recreate their machinery. This does not mean hiding prerequisites or introducing unexplained shorthand.
+
+Review of the actual Monitor files found that `app/DeviceCheck.php::run(int $deviceId)` retrieves a device, selects unknown/offline/online from its heartbeat, records the check time, and saves it. `app/Jobs/CheckDeviceCommunication.php` already stores a device ID through a promoted constructor property, but `handle()` is empty and the class does not yet implement `ShouldQueue`. The dispatch step in `routes/console.php` is also unfinished. This is a source review, not a fresh test result or authorization to complete these exercises.
+
+Guide the progression toward tracing where data comes from, IDs versus loaded objects, local variables versus stored properties, calling an existing method from another class, changing state versus persisting it, and eventually dispatch versus execution. Introduce each framework API directly when needed. The next useful bridge is how the job passes its stored ID to the existing check, with constructor promotion explained as equivalent to the ordinary property/constructor syntax already practiced. Do not implement the job for the learner.
+
+The learner challenged manually gathering separately named objects into arrays and relying on every caller to remember registration. Treat these as questions about design responsibility and unnecessary manual work, not evidence that they cannot understand array syntax. Defer the hand-built inventory registry and manual-array exercises. Teach iteration when a real operation supplies multiple records to process, with the source of that collection made explicit.
+
+Since the earlier handoff, `NamedItem` has a private quantity, a working `getQuantity(): int`, and a working `isInStock(): bool` that calls the getter. Checks covered zero and positive stock. Calling-code stock messages were corrected from `return` to `echo`, and both branches were verified. Avoid more repetitions of these same exercises as gates to moving forward. Keep the inventory project plain PHP; use Monitor as the target context, and establish the project/file explicitly when resuming work there.
+
+### Latest decision — separate SCADA learning project
+
+The learner explicitly prohibits using or editing the Monitor project for the lessons. It served only as a read-only reference. Continue in a separate `scada-learning` project with realistic supplied scaffolding, a copy of this guide, and small learner-owned exercises. Do not resume work in Monitor. The learner authorized creating and publishing the new repository publicly.
+
+Inventory is paused. At the checkpoint commit, `inventory.php` ends with an unfinished `$createdItem = new NamedItem('')` statement and fails PHP parsing. Preserve this unfinished learner attempt; it is not a completed array exercise. Earlier successful checks remain historical results, not claims that this checkpoint script runs.
